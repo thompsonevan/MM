@@ -241,7 +241,10 @@ public class BallSupervisor implements IHotSensedActuator <RobotState, RobotComm
                 //conveyor.stage(feedModes.stop);
             break;   
             case test:
-                
+                shooter.PIDmotor(robotState.getShooterTargetRPM());
+                if(shooter.isShooterStable()){
+                    shooter.indexPower(1);
+                }
             break;
         }    
         //Don't forget to comment this out cause davids stuff no work 

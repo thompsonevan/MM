@@ -161,16 +161,20 @@ public class shooter {
         rpm = Math.abs(m_encoder.getVelocity() * (36.0/24.0));
         rpm2 = Math.abs(m_encoder2.getVelocity() * (36.0/24.0));
         IAccum = m_pidController.getIAccum();
-        if ((Math.abs(PIDTarget*(36.0/24.0)-rpm)) < 100){
-            Stabalizer++;
-        }else{
-            Stabalizer = 0;
-        }
-        if(Stabalizer > 10){
+        if ((Math.abs(PIDTarget*(36.0/24.0)-rpm)) < 1000){
             Ready = true;
-        }else{
+        } else {
             Ready = false;
         }
+        SmartDashboard.putBoolean("1 Ready", Ready);
+        // }else{
+        //     Stabalizer = 0;
+        // }
+        // if(Stabalizer > 2){
+        //     Ready = true;
+        // }else{
+        //     Ready = false;
+        // }
     }
     public enum HoodPosition{
         goingUnder,

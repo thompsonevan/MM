@@ -130,13 +130,13 @@ public class TeleopCommandProvider extends RobotCommandProvider {
 
     public double getPowerState() {
         if(operator.getButtonA()){
-            pState = .25;
+            pState = .1;
         } else if(operator.getButtonB()){
-            pState = .5;
+            pState = .2;
         } else if(operator.getButtonX()){
-            pState = .75;
+            pState = .3;
         } else if(operator.getButtonY()){
-            pState = 1;
+            pState = .4;
         }
         return pState;
     }
@@ -147,56 +147,57 @@ public class TeleopCommandProvider extends RobotCommandProvider {
         if (this.getManualMode()) {
             setBallSupervisorState(BallSupervisorState.manual);
             setArmPosition(ArmPositions.manual);
-        }else if(driver.getRightTrigger() > 0.5 && operator.getButtonStart()){
-            setBallSupervisorState(BallSupervisorState.shootNstuck);
+        // }else if(driver.getRightTrigger() > 0.5 && operator.getButtonStart()){
+        //     setBallSupervisorState(BallSupervisorState.shootNstuck);
         }else if(driver.getRightTrigger() > 0.5){
-            setBallSupervisorState(BallSupervisorState.shoot);
-        }else if(driver.getLeftTrigger() > .5){
-            setBallSupervisorState(BallSupervisorState.prime);
-            robotState.setShooterTargetRPM(2000); //to const  //3800
-            setHoodPosition(hoodPos.autoshot);
-            setArmPosition(ArmPositions.autoshot);
-        }else if (operator.getButtonX()){ //config for autoshot
-            setBallSupervisorState(BallSupervisorState.prime);
-            robotState.setShooterTargetRPM(3040); //to const  //3800
-            setHoodPosition(hoodPos.autoshot);
-            setArmPosition(ArmPositions.autoshot);
+            robotState.setShooterTargetRPM(2000);
+            setBallSupervisorState(BallSupervisorState.test);
+        // }else if(driver.getLeftTrigger() > .5){
+        //     setBallSupervisorState(BallSupervisorState.prime);
+        //     robotState.setShooterTargetRPM(2000); //to const  //3800
+        //     setHoodPosition(hoodPos.autoshot);
+        //     setArmPosition(ArmPositions.autoshot);
+        // }else if (operator.getButtonX()){ //config for autoshot
+        //     setBallSupervisorState(BallSupervisorState.prime);
+        //     robotState.setShooterTargetRPM(3040); //to const  //3800
+        //     setHoodPosition(hoodPos.autoshot);
+        //     setArmPosition(ArmPositions.autoshot);
             
-        }else if(operator.getButtonB()){//config for trench shot
-            setBallSupervisorState(BallSupervisorState.prime);
-            robotState.setShooterTargetRPM(5400); //to const //5300
-            setHoodPosition(hoodPos.trench);
-            setArmPosition(ArmPositions.trenchshot);   
+        // }else if(operator.getButtonB()){//config for trench shot
+        //     setBallSupervisorState(BallSupervisorState.prime);
+        //     robotState.setShooterTargetRPM(5400); //to const //5300
+        //     setHoodPosition(hoodPos.trench);
+        //     setArmPosition(ArmPositions.trenchshot);   
 
-        }else if(operator.getButtonY()){
-            setBallSupervisorState(BallSupervisorState.prime);
-            robotState.setShooterTargetRPM(2500); //to const
-            setHoodPosition(hoodPos.oneBotBack);
-            setArmPosition(ArmPositions.wallshot);
+        // }else if(operator.getButtonY()){
+        //     setBallSupervisorState(BallSupervisorState.prime);
+        //     robotState.setShooterTargetRPM(2500); //to const
+        //     setHoodPosition(hoodPos.oneBotBack);
+        //     setArmPosition(ArmPositions.wallshot);
 
-        }else if(operator.getButtonA()){ //Prime for wallshot
-            setBallSupervisorState(BallSupervisorState.prime);
-            robotState.setShooterTargetRPM(2800); //to const
-            setHoodPosition(hoodPos.wallShot);
-            setArmPosition(ArmPositions.wallshot);
+        // }else if(operator.getButtonA()){ //Prime for wallshot
+        //     setBallSupervisorState(BallSupervisorState.prime);
+        //     robotState.setShooterTargetRPM(2800); //to const
+        //     setHoodPosition(hoodPos.wallShot);
+        //     setArmPosition(ArmPositions.wallshot);
 
-        }else if(operator.getDpad() == 180){
-            setBallSupervisorState(BallSupervisorState.prime);
-            robotState.setShooterTargetRPM(1500); //to const //5300
-            setHoodPosition(hoodPos.wallShot); 
+        // }else if(operator.getDpad() == 180){
+        //     setBallSupervisorState(BallSupervisorState.prime);
+        //     robotState.setShooterTargetRPM(1500); //to const //5300
+        //     setHoodPosition(hoodPos.wallShot); 
 
-        }else if(operator.getButtonStart()){
-            setBallSupervisorState(BallSupervisorState.reject);
-        }else if(operator.getButtonLeftBumper()){
-            setBallSupervisorState(BallSupervisorState.intakeIn); 
-            setArmPosition(ArmPositions.ground);
-        }else if(operator.getButtonRightBumper()){
-            setBallSupervisorState(BallSupervisorState.intakeOut); 
-        }else if(operator.getButtonRightStick()){
-            setBallSupervisorState(BallSupervisorState.reset);
-        }else if(operator.getButtonLeftStick()){
-            setArmPosition(ArmPositions.wheelOfFortune);
-            setBallSupervisorState(BallSupervisorState.intakeStop);
+        // }else if(operator.getButtonStart()){
+        //     setBallSupervisorState(BallSupervisorState.reject);
+        // }else if(operator.getButtonLeftBumper()){
+        //     setBallSupervisorState(BallSupervisorState.intakeIn); 
+        //     setArmPosition(ArmPositions.ground);
+        // }else if(operator.getButtonRightBumper()){
+        //     setBallSupervisorState(BallSupervisorState.intakeOut); 
+        // }else if(operator.getButtonRightStick()){
+        //     setBallSupervisorState(BallSupervisorState.reset);
+        // }else if(operator.getButtonLeftStick()){
+        //     setArmPosition(ArmPositions.wheelOfFortune);
+        //     setBallSupervisorState(BallSupervisorState.intakeStop);
         
         }else{
             setBallSupervisorState(BallSupervisorState.intakeStop); 

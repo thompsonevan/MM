@@ -127,9 +127,9 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     drivetrain.performAction(commander, robotState);
     commander.chooseBallCommand();
-    climber.performAction(commander, robotState);
+    // climber.performAction(commander, robotState);
     ballSupervisor.performAction(commander, robotState);
-    arm.performAction(commander, robotState);
+    // arm.performAction(commander, robotState);
     commander.setManualMode();
     commander.setLowPowerMode();
   }

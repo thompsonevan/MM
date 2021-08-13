@@ -135,7 +135,7 @@ public class AutoCommandProvider extends RobotCommandProvider {
             
         }
     }   
-    public int getPowerState() {
+    public double getPowerState() {
         // TODO Auto-generated method stub
         return 0;
     }
